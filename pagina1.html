@@ -1,0 +1,87 @@
+ <!DOCTYPE html>                                                                                                                                                                                 <html lang="pt-BR">
+  <head>                                                                                                                                                                                              <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Pedido de namoro</title>
+      <style>
+          body {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height: 100vh;
+              background-color: #111; /* Fundo escuro */
+              font-family: 'Georgia', serif; /* Fonte gótica */
+              text-align: center;
+              color: white;
+              margin: 0;
+          }
+          .container {
+              background-color: rgba(0, 0, 0, 0.7); /* Fundo levemente transparente */
+              padding: 30px;
+              border-radius: 10px;
+              box-shadow: 0 0 15px rgba(255, 0, 0, 0.6); /* Sombra vermelha */
+          }
+          h1 {
+              color: #ff69b4; /* Rosa */
+              text-shadow: 2px 2px 5px black; /* Sombra do texto */
+          }
+          button {
+              padding: 10px 20px;
+              border: none;
+              border-radius: 5px;
+              cursor: pointer;
+              font-size: 16px;
+              margin: 10px;
+              transition: 0.3s;
+              font-family: 'Georgia', serif; /* Fonte dos botões */
+          }
+          .yes {
+              background-color: #68c8a0; /* Verde */
+              color: white;
+              border: 2px solid #ff69b4;
+          }
+          .no {
+              background-color: #ff6b6b; /* Vermelho */
+              color: white;
+              border: 2px solid #ff69b4;
+          }
+          #response {
+              display: none;
+              margin-top: 20px;
+          }
+          /* Efeito de teleportação */
+          #noButton {
+              position: relative; /* Para o efeito de teleportação */
+              transition: transform 0.5s ease; /* Transição suave */
+          }
+      </style>
+  </head>
+  <body>
+      <div class="container">
+          <h1>Quer namorar comigo?</h1>
+          <button class="yes" onclick="showResponse('sim')">Sim</button>
+          <button class="no" id="noButton" onmouseover="teleportNo()" onclick="showResponse('nao')">Não</button>
+          <div id="response"></div>
+      </div>
+
+      <script>
+          function teleportNo() {
+              const noButton = document.getElementById('noButton');
+              const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
+              const y = Math.random() * (window.innerHeight - noButton.offsetHeight);
+              noButton.style.position = 'absolute';
+              noButton.style.left = `${x}px`;
+              noButton.style.top = `${y}px`;
+          }
+
+          function showResponse(answer) {
+              const responseDiv = document.getElementById('response');
+              if (answer === 'sim') {
+                  responseDiv.innerHTML = "<h2 style='color: #68c8a0;'>Copia e cola no navegador https://garotinha666.github.io/St-2/</h2>";
+              } else {
+                  responseDiv.innerHTML = "<h2 style='color: #ff6b6b;'>Ok, se fez todo esse esforço para clicar em não.</h2>";
+              }
+              responseDiv.style.display = 'block';
+          }
+      </script>
+  </body>
+  </html>
